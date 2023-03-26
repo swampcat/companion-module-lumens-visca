@@ -941,6 +941,134 @@ instance.prototype.init_presets = function () {
 		},
 		{
 			category: 'White Balance',
+			label: 'White Balance - Indoor',
+			bank: {
+				style: 'text',
+				text: 'WB\\nIndoor',
+				size: '14',
+				color: '16777215',
+				bgcolor: self.rgb(0, 0, 0),
+			},
+			actions: [
+				{
+					action: 'wbModeIndoor',
+				}
+			]
+		},
+		{
+			category: 'White Balance',
+			label: 'White Balance - Outdoor',
+			bank: {
+				style: 'text',
+				text: 'WB\\nOutdoor',
+				size: '14',
+				color: '16777215',
+				bgcolor: self.rgb(0, 0, 0),
+			},
+			actions: [
+				{
+					action: 'wbModeOutdoor',
+				}
+			]
+		},
+		{
+			category: 'White Balance',
+			label: 'White Balance - 3000K',
+			bank: {
+				style: 'text',
+				text: 'WB\\n3000K',
+				size: '14',
+				color: '16777215',
+				bgcolor: self.rgb(0, 0, 0),
+			},
+			actions: [
+				{
+					action: 'wbMode3000K',
+				}
+			]
+		},
+		{
+			category: 'White Balance',
+			label: 'White Balance - 4300K',
+			bank: {
+				style: 'text',
+				text: 'WB\\n4300K',
+				size: '14',
+				color: '16777215',
+				bgcolor: self.rgb(0, 0, 0),
+			},
+			actions: [
+				{
+					action: 'wbMode4300K',
+				}
+			]
+		},
+		{
+			category: 'White Balance',
+			label: 'White Balance - 5000K',
+			bank: {
+				style: 'text',
+				text: 'WB\\n5000K',
+				size: '14',
+				color: '16777215',
+				bgcolor: self.rgb(0, 0, 0),
+			},
+			actions: [
+				{
+					action: 'wbMode5000K',
+				}
+			]
+		},
+		{
+			category: 'White Balance',
+			label: 'White Balance - 6500K',
+			bank: {
+				style: 'text',
+				text: 'WB\\n6500K',
+				size: '14',
+				color: '16777215',
+				bgcolor: self.rgb(0, 0, 0),
+			},
+			actions: [
+				{
+					action: 'wbMode6500K',
+				}
+			]
+		},
+		{
+			category: 'White Balance',
+			label: 'White Balance - 8000K',
+			bank: {
+				style: 'text',
+				text: 'WB\\n8000K',
+				size: '14',
+				color: '16777215',
+				bgcolor: self.rgb(0, 0, 0),
+			},
+			actions: [
+				{
+					action: 'wbMode8000K',
+				}
+			]
+		},
+		{
+			category: 'White Balance',
+			label: 'White Balance - Auto Tracing',
+			bank: {
+				style: 'text',
+				text: 'WB\\nAutoTracing',
+				size: '14',
+				color: '16777215',
+				bgcolor: self.rgb(0, 0, 0),
+			},
+			actions: [
+				{
+					action: 'wbModeAutoTracing',
+				}
+			]
+		},
+		{
+			category: 'White Balance',
 			label: 'White Balance - One Push WB',
 			bank: {
 				style: 'text',
@@ -1724,7 +1852,15 @@ instance.prototype.actions = function (system) {
 
 		//=============== White Balance catalog =================
 		'wbModeAuto': { label: 'White Balance Mode - Auto' },
+		'wbModeIndoor': { label: 'White Balance Mode - Indoor' },
+		'wbModeOutdoor': { label: 'White Balance Mode - Outdoor' },
+		'wbModeAutoTracing': { label: 'White Balance Mode - Auto Tracing' },
 		'wbModeOnePush': { label: 'White Balance Mode - One Push' },
+		'wbMode3000K': { label: 'White Balance Mode - 3000K' },
+		'wbMode4300K': { label: 'White Balance Mode - 4300K' },
+		'wbMode5000K': { label: 'White Balance Mode - 5000K' },
+		'wbMode6500K': { label: 'White Balance Mode - 6500K' },
+		'wbMode8000K': { label: 'White Balance Mode - 8000K' },
 		'wbModeManual': { label: 'White Balance Mode - Manual' },
 		'onePushWB': { label: 'One Push WB' },
 		'wbRGainU': { label: 'WB Red GAIN Up' },
@@ -1967,12 +2103,44 @@ instance.prototype.action = function (action) {
 			cmd = String.fromCharCode(parseInt(self.config.id)) + '\x01\x04\x35\x00\xFF';
 			break;
 
+		case 'wbModeIndoor':
+			cmd = String.fromCharCode(parseInt(self.config.id)) + '\x01\x04\x35\x01\xFF';
+			break;
+
+		case 'wbModeOutdoor':
+			cmd = String.fromCharCode(parseInt(self.config.id)) + '\x01\x04\x35\x02\xFF';
+			break;
+
+		case 'wbModeAutoTracing':
+			cmd = String.fromCharCode(parseInt(self.config.id)) + '\x01\x04\x35\x04\xFF';
+			break;
+
 		case 'wbModeOnePush':
 			cmd = String.fromCharCode(parseInt(self.config.id)) + '\x01\x04\x35\x03\xFF';
 			break;
 
 		case 'wbModeManual':
 			cmd = String.fromCharCode(parseInt(self.config.id)) + '\x01\x04\x35\x05\xFF';
+			break;
+
+		case 'wbMode3000K':
+			cmd = String.fromCharCode(parseInt(self.config.id)) + '\x01\x04\x35\x06\xFF';
+			break;
+	
+		case 'wbMode4300K':
+			cmd = String.fromCharCode(parseInt(self.config.id)) + '\x01\x04\x35\x07\xFF';
+			break;
+
+		case 'wbMode5000K':
+			cmd = String.fromCharCode(parseInt(self.config.id)) + '\x01\x04\x35\x08\xFF';
+			break;
+
+		case 'wbMode6500K':
+			cmd = String.fromCharCode(parseInt(self.config.id)) + '\x01\x04\x35\x09\xFF';
+			break;
+
+		case 'wbMode8000K':
+			cmd = String.fromCharCode(parseInt(self.config.id)) + '\x01\x04\x35\x0A\xFF';
 			break;
 
 		case 'onePushWB':

@@ -90,6 +90,11 @@ then search "companion"
 - White Balance Mode - Auto
 - White Balance Mode - One Push
 - White Balance Mode - Manual
+- White Balance Mode - 3000K
+- White Balance Mode - 4300K
+- White Balance Mode - 5000K
+- White Balance Mode - 6500K
+- White Balance Mode - 8000K
 - One Push WB : Enabled at One Push WB mode
 - WB Red GAIN Up : Enabled at WB Manual mode
 - WB Red GAIN Down : Enabled at WB Manual mode
